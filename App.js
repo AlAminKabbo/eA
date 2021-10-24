@@ -19,14 +19,14 @@ function App(){
         {
           user ? (
             <>
-            <Stack.screen name='Home' component={Home}/>
-            <Stack.screen name='Create' component={Create}/>
-            <Stack.screen name='Update' component={Update}/>
+            <Stack.Screen name='Home' component={Home}/>
+            <Stack.Screen name='Create' component={Create}/>
+            <Stack.Screen name='Update' component={Update}/>
           </>
           ) : (
             <>
-            <Stack.screen name='Login' component={Login}/>
-            <Stack.screen name='Signup' component={Signup}/>
+            <Stack.Screen name='Login' component={Login}/>
+            <Stack.Screen name='Signup' component={Signup}/>
             </>
           )
         }
@@ -36,12 +36,3 @@ function App(){
 }
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
