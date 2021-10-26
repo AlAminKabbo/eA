@@ -1,8 +1,9 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView} from 'react-native'
+import { View, Text, StyleSheet, ScrollView, ActivityIndicator} from 'react-native'
 import Button from '../components/Button'
 import Input from '../components/Input'
 import RadioInput from '../components/radio-input'
+import { firebase } from '../components/config'
 
 const OPTIONS = ['Male','Female','Other']
 
@@ -10,16 +11,39 @@ export default function signup() {
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const [name, setName] = React.useState('')
-    const [age, setage] = React.useState('')
+    const [age, setAge] = React.useState('')
     const [gender, setGender] = React.useState(null)
+    const [loding, setLoding] = React.useState(false)
 
+    const signup = () => {
+        //1. validate the  form
+
+        //2.loding to  true
+        setLoding(true)
+
+        //3. create user in firebase
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then((response) => {
+                console.log("RESPONSE --",response)
+                //4. add user profile
+            }).catch((error)=>{
+                setLoding(false)
+                console.log('error',error)
+            }
+        );
+
+        //5. loding to false + validate any  error
+    }
+    
     return (
         <View>
             <ScrollView>
             <Input placeholder='Email' onChangeText={(text) => setEmail(text)}/>
-            <Input placeholder='Password' onChangeText={(text) => setEmail(text)}/>
-            <Input placeholder='Full name' onChangeText={(text) => setEmail(text)}/>
-            <Input placeholder='Age' onChangeText={(text) => setEmail(text)}/>
+            <Input placeholder='Password' onChangeText={(text) => setPassword(text)} secureTextEntry={true}/>
+            <Input placeholder='Full name' onChangeText={(text) => setName(text)}/>
+            <Input placeholder='Age' onChangeText={(text) => setAge(text)}/>
 
             {/* <RadioInput level='Male'/>
             <RadioInput level='Female'/>
@@ -37,7 +61,17 @@ export default function signup() {
                 ))}
             </View>
             </ScrollView>
-            <Button title='Submit' customStyles={styles.customStyles}/>
+            
+            {loding ?
+                <ActivityIndicator/>
+                :<Button 
+                    title='Submit' 
+                    customStyles={styles.customStyles}
+                    onPress={signup}
+                />
+            }
+            
+
             <View>
                 <Text style={styles.termsCondition}>
                 By continuing, you accept the   
