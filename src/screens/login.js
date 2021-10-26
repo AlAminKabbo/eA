@@ -1,7 +1,12 @@
 import React from 'react'
-import { View, Text, SafeAreaView, Image, StatusBar, TextInput,StyleSheet } from 'react-native'
+import { View, Text, SafeAreaView, Image, StatusBar, TextInput,StyleSheet, TouchableOpacity } from 'react-native'
+import Button from '../components/Button'
+import Input from '../components/Input'
 
-export default function login() {
+export default function login({navigation}) {
+    const navigateToSignUp = () =>{
+        navigation.navigate('Signup')
+    }
     return (
         <SafeAreaView>
         <StatusBar
@@ -10,25 +15,35 @@ export default function login() {
         <View >
             <Image source={require('../../assets/login-image.png')} style={{alignSelf:'center'}}/>
             <Text style={{textAlign:'center', fontSize: 18, fontWeight:'bold'}}>Never forget your notes</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Email"
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Password"
-            />
+            
+            <Input placeholder='Email'/>
+            <Input placeholder='Password'/>
+            
+            <Button title="Login" customStyles={{marginTop:25, alignSelf:'center'}}/>
+            <TouchableOpacity onPress={navigateToSignUp} style={styles.text}>
+                <Text>Don't have an account? <Text> </Text>
+                <Text style={styles.signup}>Signup</Text>
+                </Text>
+            </TouchableOpacity>
         </View>
         </SafeAreaView>
     )
 }
 
 const styles= StyleSheet.create({
-    input:{
-        borderBottomWidth: 2,
-        borderBottomColor: '#BBBBBB',
-        padding: 10,
-        margin: 20,
+    text:{
+       alignItems:'center',
+       marginTop: 5, 
+    },
+    signup:{
+        color:'#18B18D',
+    },
+    margin:{
+        marginTop:5,
+    },
+    customStyles:{
+        marginTop:25, 
+        alignSelf:'center'
     }
 })
 
