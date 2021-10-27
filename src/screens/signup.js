@@ -1,9 +1,10 @@
 import React from 'react'
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator} from 'react-native'
 import Button from '../components/Button'
+import useFirebase from '../components/config'
 import Input from '../components/Input'
 import RadioInput from '../components/radio-input'
-import { firebase } from '../components/config'
+
 
 const OPTIONS = ['Male','Female','Other']
 
@@ -15,27 +16,34 @@ export default function signup() {
     const [gender, setGender] = React.useState(null)
     const [loding, setLoding] = React.useState(false)
 
-    const signup = () => {
+    const {firebase} = useFirebase();
+    console.log(email,password);
+
+    // const email1="test1235@gamil.com"
+    // const pass="test123456"
+
+    const signup= () => {
         //1. validate the  form
 
         //2.loding to  true
         setLoding(true)
 
-        //3. create user in firebase
+        //console.log(email,password);
+
         firebase
-            .auth()
-            .createUserWithEmailAndPassword(email, password)
-            .then((response) => {
-                console.log("RESPONSE --",response)
-                //4. add user profile
-            }).catch((error)=>{
-                setLoding(false)
-                console.log('error',error)
-            }
-        );
+            .auth().createUserWithEmailAndPassword(email, password)
+        .then((response) => {
+            console.log('RESPONSE --',response)
+        }).catch((error) => {
+            setLoding(false)
+            console.log('error',error)
+        }
+    );
 
         //5. loding to false + validate any  error
     }
+
+   console.log(firebase)
     
     return (
         <View>
@@ -68,7 +76,7 @@ export default function signup() {
                     title='Submit' 
                     customStyles={styles.customStyles}
                     onPress={signup}
-                    />
+                />
             }
             
 
