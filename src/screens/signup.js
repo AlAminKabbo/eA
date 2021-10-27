@@ -68,7 +68,7 @@ export default function signup() {
                     title='Submit' 
                     customStyles={styles.customStyles}
                     onPress={signup}
-                />
+                    />
             }
             
 
