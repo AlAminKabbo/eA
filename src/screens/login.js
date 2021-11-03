@@ -7,11 +7,7 @@ export default function login({navigation}) {
     const navigateToSignUp = () =>{
         navigation.navigate('Signup')
     }
-    const checkLogin = () =>{
-        if(email==email && password==password){
-            navigation.navigate('Home')
-        }
-    }
+
     return (
         <SafeAreaView>
         <StatusBar
@@ -27,7 +23,6 @@ export default function login({navigation}) {
             <Button 
                 title="Login" 
                 customStyles={styles.customStyles}
-                onPress={checkLogin}
             />
 
             <TouchableOpacity onPress={navigateToSignUp} style={styles.text}>

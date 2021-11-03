@@ -29,28 +29,29 @@ export default function signup({navigation}) {
         setLoding(true)
 
         //console.log(email,password);
-
+console.log('1');
         firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((response) => {
             console.log('RESPONSE --',response)
+console.log('2');
+            // const  uid = response.user.uid
 
-            const  uid = response.user.uid
+            // const userProfileData ={
+            //     id: uid,
+            //     name: name,
+            //     age: age,
+            //     email: email,
+            //     gender: gender,
+            // }
+            // const userRef = firebase.firestore().collection("users");
+            // userRef.doc(uid).set(userProfileData);
 
-            const userProfileData ={
-                id: uid,
-                name: name,
-                age: age,
-                email: email,
-                gender: gender,
-            }
-            const userRef = firebase.firestore().collection("users");
-            userRef.doc(uid).set(userProfileData);
-
-            setLoding(false)
-            navigation.navigate('Home')
+            // setLoding(false)
+            // navigation.navigate('Home')
             
         }).catch((error) => {
             setLoding(false)
+            console.log('3');
             console.log('error',error)
         }
     );
@@ -85,15 +86,19 @@ export default function signup({navigation}) {
             </View>
             </ScrollView>
             
-            {loding ?
+            {/* {loding ?
                 <ActivityIndicator/>
                 :<Button 
                     title='Submit' 
                     customStyles={styles.customStyles}
                     onPress={submit}
                 />
-            }
-            
+            } */}
+            <Button 
+                    title='Submit' 
+                    customStyles={styles.customStyles}
+                    onPress={submit}
+                />
 
             <View>
                 <Text style={styles.termsCondition}>
