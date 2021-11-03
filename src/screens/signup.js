@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator} from 'react-native'
 import Button from '../components/Button'
-import useFirebase from '../components/config'
+import firebase from '../components/config'
 import Input from '../components/Input'
 import RadioInput from '../components/radio-input'
 
@@ -16,8 +16,8 @@ export default function signup() {
     const [gender, setGender] = React.useState(null)
     const [loding, setLoding] = React.useState(false)
 
-    const {firebase} = useFirebase();
-    console.log(email,password);
+    // const {firebase} = useFirebase();
+    // console.log(email,password);
 
     // const email1="test1235@gamil.com"
     // const pass="test123456"
@@ -43,7 +43,7 @@ export default function signup() {
         //5. loding to false + validate any  error
     }
 
-   console.log(firebase)
+//    console.log(firebase)
     
     return (
         <View>
