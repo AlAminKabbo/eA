@@ -8,7 +8,7 @@ import RadioInput from '../components/radio-input'
 
 const OPTIONS = ['Male','Female','Other']
 
-export default function signup() {
+export default function signup({navigation}) {
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
     const [name, setName] = React.useState('')
@@ -22,7 +22,7 @@ export default function signup() {
     // const email1="test1235@gamil.com"
     // const pass="test123456"
 
-    const signup= () => {
+    const submit= () => {
         //1. validate the  form
 
         //2.loding to  true
@@ -30,10 +30,25 @@ export default function signup() {
 
         //console.log(email,password);
 
-        firebase
-            .auth().createUserWithEmailAndPassword(email, password)
+        firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((response) => {
             console.log('RESPONSE --',response)
+
+            const  uid = response.user.uid
+
+            const userProfileData ={
+                id: uid,
+                name: name,
+                age: age,
+                email: email,
+                gender: gender,
+            }
+            const userRef = firebase.firestore().collection("users");
+            userRef.doc(uid).set(userProfileData);
+
+            setLoding(false)
+            navigation.navigate('Home')
+            
         }).catch((error) => {
             setLoding(false)
             console.log('error',error)
@@ -75,7 +90,7 @@ export default function signup() {
                 :<Button 
                     title='Submit' 
                     customStyles={styles.customStyles}
-                    onPress={signup}
+                    onPress={submit}
                 />
             }
             
