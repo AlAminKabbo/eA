@@ -2,9 +2,8 @@ import * as firebase from "firebase"
 import "@firebase/auth"
 import "@firebase/firestore"
 
-export default function useFirebase(){
-   
-    const firebaseConfig = {
+
+const firebaseConfig = {
         apiKey: "AIzaSyDIGeh-655Uwm7aMfeiisFKu3tHZGnqO44",
         authDomain: "noteapp-a6b84.firebaseapp.com",
         projectId: "noteapp-a6b84",
@@ -18,8 +17,5 @@ if(!firebase.apps.length){
     firebase.initializeApp(firebaseConfig);
 }
 
-return{
-    firebase
-}
-}
+export {firebase}
 
