@@ -20,7 +20,14 @@ export default function login({navigation}) {
             <Input placeholder='Email'/>
             <Input placeholder='Password'/>
             
+<<<<<<< HEAD
             <Button title="Login" customStyles={styles.customStyles}/>
+=======
+            <Button 
+                title="Login" 
+                customStyles={styles.customStyles}
+            />
+>>>>>>> e8ae551e466b86bbfe892e1905a1036fb1f9dad3
 
             <TouchableOpacity onPress={navigateToSignUp} style={styles.text}>
                 <Text>Don't have an account? <Text> </Text>
