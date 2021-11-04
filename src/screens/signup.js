@@ -4,7 +4,7 @@ import Button from '../components/Button'
 import useFirebase from '../components/config'
 import Input from '../components/Input'
 
-export default function signup() {
+export default function signup({navigation}) {
     
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
@@ -14,7 +14,7 @@ export default function signup() {
     const {firebase} = useFirebase();
     console.log(email,password);
 
-    const signup= () => {
+    const signupData= () => {
         //1. validate the  form
 
         //2.loding to  true
@@ -49,7 +49,7 @@ export default function signup() {
                 :<Button 
                     title='Submit' 
                     customStyles={styles.customStyles}
-                    onPress={signup}
+                    onPress={signupData}
                 />
             }
 

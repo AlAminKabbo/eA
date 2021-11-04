@@ -14,7 +14,7 @@ import * as ImagePicker from 'expo-image-picker';
 const OPTIONS = ['Male','Female']
 //const interest = ['A','B', 'C ']
 
-export default function create() {
+export default function create({navigation}) {
     const [gender, setGender] = React.useState(null)
     const [image, setImage] = React.useState(null)
 
