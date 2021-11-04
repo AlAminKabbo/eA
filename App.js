@@ -20,7 +20,7 @@ const AppTheme = {
 
 
 function App(){
-  const [user, setUser] = React.useState(false)
+  const [user, setUser] = React.useState(true)
 
   return(
     <NavigationContainer theme={AppTheme}>
@@ -28,8 +28,9 @@ function App(){
         {
           user ? (
             <>
+            
             <Stack.Screen name='Home' component={Home} options={{headerShown:false}}/>
-            <Stack.Screen name='Create' component={Create}/>
+            <Stack.Screen name='Create' component={Create} options={{headerShown:false}}/>
             <Stack.Screen name='Update' component={Update}/>
           </>
           ) : (

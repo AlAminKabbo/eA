@@ -5,12 +5,12 @@ import "@firebase/firestore"
 export default function useFirebase(){
    
     const firebaseConfig = {
-        apiKey: "AIzaSyDIGeh-655Uwm7aMfeiisFKu3tHZGnqO44",
-        authDomain: "noteapp-a6b84.firebaseapp.com",
-        projectId: "noteapp-a6b84",
-        storageBucket: "noteapp-a6b84.appspot.com",
-        messagingSenderId: "637254639763",
-        appId: "1:637254639763:web:a766fd1db31ea810ccad66"
+        apiKey: "AIzaSyDoBxVswLE9ibm-bfjxCjhm0E_gK6uUUvI",
+        authDomain: "employeeapp-a7a0a.firebaseapp.com",
+        projectId: "employeeapp-a7a0a",
+        storageBucket: "employeeapp-a7a0a.appspot.com",
+        messagingSenderId: "752311090825",
+        appId: "1:752311090825:web:2b8d681611106298055058"
       };
       
 

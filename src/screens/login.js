@@ -7,19 +7,21 @@ export default function login({navigation}) {
     const navigateToSignUp = () =>{
         navigation.navigate('Signup')
     }
+
     return (
         <SafeAreaView>
         <StatusBar
-        backgroundColor="#18B18D"
+        backgroundColor="black"
         />
         <View >
             <Image source={require('../../assets/login-image.png')} style={{alignSelf:'center'}}/>
-            <Text style={{textAlign:'center', fontSize: 18, fontWeight:'bold'}}>Never forget your notes</Text>
+            <Text style={{textAlign:'center', fontSize: 18, fontWeight:'bold'}}>MANAGE ALL YOUR EMPLOYEES</Text>
             
             <Input placeholder='Email'/>
             <Input placeholder='Password'/>
             
             <Button title="Login" customStyles={styles.customStyles}/>
+
             <TouchableOpacity onPress={navigateToSignUp} style={styles.text}>
                 <Text>Don't have an account? <Text> </Text>
                 <Text style={styles.signup}>Signup</Text>
