@@ -8,7 +8,7 @@ import * as ImagePicker from 'expo-image-picker';
 //     SelectMultipleButton,
 //     SelectMultipleGroupButton
 //   } from "react-native-selectmultiple-button";
-import Button from '../components/Button'
+  import Button from '../components/Button'
   
 
 const OPTIONS = ['Male','Female']

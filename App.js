@@ -20,7 +20,7 @@ const AppTheme = {
 
 
 function App(){
-  const [user, setUser] = React.useState(true)
+  const [user, setUser] = React.useState(false)
 
   return(
     <NavigationContainer theme={AppTheme}>
